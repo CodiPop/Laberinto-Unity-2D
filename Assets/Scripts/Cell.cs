@@ -37,11 +37,10 @@ public class Cell : MonoBehaviour
 
     private void OnMouseDown()
     {
-        
         if (Input.GetMouseButton(0))
         {
             grid.CellMouseClick(this);
-        } 
+        }
     }
 
     internal void CalculateFCost()

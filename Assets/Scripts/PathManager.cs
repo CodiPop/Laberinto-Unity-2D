@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class PathManager : MonoBehaviour
 {
-    private const int MOVE_STRAIGHT_COST = 10;
-    private const int MOVE_DIAGONAL_COST = 14;
+    private const int MOVE_STRAIGHT_COST = 1;
+    private const int MOVE_DIAGONAL_COST = 300;
     public static PathManager Instance; 
     private List<Cell> openList;
     private List<Cell> closedList;

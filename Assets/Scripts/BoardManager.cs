@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
-using DG.Tweening;
 
 public class BoardManager : MonoBehaviour
 {
@@ -12,8 +12,11 @@ public class BoardManager : MonoBehaviour
     private Player player;
     [SerializeField]
     private float moveSpeed = 2f;
-    [SerializeField]
-    private int n = 10;
+    public Canvas canvas;
+    public Button button;
+    public Dropdown dropdown;
+    public InputField input;
+    public Timer other;
 
     private void Awake()
     {
@@ -22,9 +25,23 @@ public class BoardManager : MonoBehaviour
 
     private void Start()
     {
-        grid = new Grid(n, n, 1, CellPrefab);
+        button.onClick.AddListener(() =>
+        {
+            canvas.gameObject.SetActive(false);
+            int index = dropdown.value;
+            int n = int.Parse(dropdown.options[index].text);
+            int integer_Value_we_Want = int.Parse(input.text); //for integer 
+            Debug.Log(integer_Value_we_Want);
+            grid = new Grid(n, n, 1, CellPrefab);
 
-        player = Instantiate(PlayerPrefab, new Vector2(0, 0), Quaternion.identity);  
+            player = Instantiate(PlayerPrefab, new Vector2(0, 0), Quaternion.identity);
+            other.StartCoroutine("StopWatch");
+
+        }
+
+        );
+
+
     }
 
     public void CellMouseClick(int x, int y)
