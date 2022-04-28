@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Timer other;
     List<Cell> path;
     [SerializeField]
     private float moveSpeed = 2f;
-
     public Vector2 GetPosition => transform.position;
 
     // Index of current waypoint from which Enemy walks
@@ -22,6 +22,15 @@ public class Player : MonoBehaviour
         Move();
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag.Equals("Enemy"))
+        {
+            Destroy(this.gameObject);
+            BoardManager.Instance.other.StartCoroutine("StopWatchStop");
+            ;
+        }
+    }
     public void SetPath(List<Cell> path)
     {
         //ResetPosition();
