@@ -17,7 +17,8 @@ public class BoardManager : MonoBehaviour
     public Dropdown dropdown;
     public InputField input;
     public Timer other;
-
+    public int integer_Value_we_Want;
+    public float P = 25;
     private void Awake()
     {
         Instance = this;
@@ -30,7 +31,8 @@ public class BoardManager : MonoBehaviour
             canvas.gameObject.SetActive(false);
             int index = dropdown.value;
             int n = int.Parse(dropdown.options[index].text);
-            int integer_Value_we_Want = int.Parse(input.text); //for integer 
+            P = P * ((n / 10));
+            integer_Value_we_Want = int.Parse(input.text); //for integer 
             Debug.Log(integer_Value_we_Want);
             grid = new Grid(n, n, 1, CellPrefab);
 
@@ -50,5 +52,12 @@ public class BoardManager : MonoBehaviour
 
         player.SetPath(path);
     }
-
+    public int GetM()
+    {
+        return integer_Value_we_Want;
+    }
+    public float GetP()
+    {
+        return P;
+    }
 }

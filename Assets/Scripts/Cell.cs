@@ -20,7 +20,8 @@ public class Cell : MonoBehaviour
         this.x = x;
         this.y = y;
         this.isWalkable = isWalkable;
-        SetText(x + "," + y);
+        //SetText(x + "," + y);
+        SetText("");
     }
 
     public Vector2 Position => transform.position;

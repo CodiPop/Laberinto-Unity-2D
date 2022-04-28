@@ -12,7 +12,11 @@ public class Grid : ScriptableObject
     private int cellSize;
     private Cell cellPrefab;
     private Cell[,] gridArray;
-
+    private int maxm;
+    private float P;
+    private int cont;
+    string final = "Cell 9,9";
+    public string abc;
 
     public Grid(int width, int height, int cellSize, Cell cellPrefab)
     {
@@ -27,9 +31,11 @@ public class Grid : ScriptableObject
 
     private void generateBoard()
     {
+        maxm = BoardManager.Instance.GetM();
+        P = BoardManager.Instance.GetP();
+        Debug.Log("papalindo"+maxm);
         Cell cell;
         gridArray = new Cell[width, height];
-
         for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < height; j++)
@@ -38,10 +44,22 @@ public class Grid : ScriptableObject
                 cell = Instantiate(cellPrefab, p, Quaternion.identity);
                 cell.Init(this, (int)p.x, (int)p.y, true);
 
-                if (Random.Range(0, 10) <= 2)
-                    cell.SetWalkable(false);
+                if (Random.Range(0, P) <= 2)
+                {
+                    
+                    if (cont < maxm)
+                    {
+                        cell.SetWalkable(false);
+                        cont = cont + 1;
+                        P = P - 1;
+                        
+                    }
+                }
                 else
+                {
                     cell.SetColor(Color.blue);
+                }
+                    
 
                 gridArray[i, j] = cell;
             }

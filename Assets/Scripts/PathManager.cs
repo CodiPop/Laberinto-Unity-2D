@@ -22,10 +22,11 @@ public class PathManager : MonoBehaviour
 
     public List<Cell> FindPath(Grid grid, int startx, int starty, int endx, int endy)
     {
+      
         this.grid = grid;
         Cell startCell = grid.GetGridObject(startx, starty);
         Cell endCell = grid.GetGridObject(endx, endy);
-
+        Debug.Log("ay ombeeeee"+endCell);
         openList = new List<Cell> { startCell };
         closedList = new List<Cell>();
 
@@ -103,7 +104,7 @@ public class PathManager : MonoBehaviour
 
         foreach(Cell c in path)
         {
-            c.SetColor(Color.green);
+            //c.SetColor(Color.green);
             Debug.Log(c.ToString());
         }
         return path;
