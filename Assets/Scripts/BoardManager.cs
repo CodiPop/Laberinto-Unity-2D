@@ -7,7 +7,9 @@ public class BoardManager : MonoBehaviour
 {
     public static BoardManager Instance;
     [SerializeField] private Cell CellPrefab;
+    [SerializeField] private Cell CellPrefab2;
     [SerializeField] private Player PlayerPrefab;
+    [SerializeField] private Cell salida;
     private Grid grid;
     private Player player;
     [SerializeField]
@@ -19,6 +21,11 @@ public class BoardManager : MonoBehaviour
     public Timer other;
     public int integer_Value_we_Want;
     public float P = 25;
+   
+
+
+
+
     private void Awake()
     {
         Instance = this;
@@ -34,7 +41,7 @@ public class BoardManager : MonoBehaviour
             P = P * ((n / 10));
             integer_Value_we_Want = int.Parse(input.text); //for integer 
             Debug.Log(integer_Value_we_Want);
-            grid = new Grid(n, n, 1, CellPrefab);
+            grid = new Grid(n, n, 1, CellPrefab, CellPrefab2);
 
             player = Instantiate(PlayerPrefab, new Vector2(0, 0), Quaternion.identity);
             other.StartCoroutine("StopWatch");

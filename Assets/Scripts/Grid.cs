@@ -11,6 +11,7 @@ public class Grid : ScriptableObject
     private int height;
     private int cellSize;
     private Cell cellPrefab;
+    private Cell cellPrefab2;
     private Cell[,] gridArray;
     private int maxm;
     private float P;
@@ -18,13 +19,14 @@ public class Grid : ScriptableObject
     string final = "Cell 9,9";
     public string abc;
 
-    public Grid(int width, int height, int cellSize, Cell cellPrefab)
+    public Grid(int width, int height, int cellSize, Cell cellPrefab, Cell cellPrefab2)
     {
         
         this.width = width;
         this.height = height;
         this.cellSize = cellSize;
         this.cellPrefab = cellPrefab;
+        this.cellPrefab2 = cellPrefab2;
 
         generateBoard();
     }
@@ -33,7 +35,6 @@ public class Grid : ScriptableObject
     {
         maxm = BoardManager.Instance.GetM();
         P = BoardManager.Instance.GetP();
-        Debug.Log("papalindo"+maxm);
         Cell cell;
         gridArray = new Cell[width, height];
         for (int i = 0; i < width; i++)
@@ -52,12 +53,14 @@ public class Grid : ScriptableObject
                         cell.SetWalkable(false);
                         cont = cont + 1;
                         P = P - 1;
-                        
+
+
                     }
                 }
                 else
                 {
-                    cell.SetColor(Color.blue);
+                    cell.SetColor(Color.white);
+
                 }
                     
 

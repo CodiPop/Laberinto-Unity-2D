@@ -13,6 +13,7 @@ public class Cell : MonoBehaviour
     public int x, y ;
     public int gCost, hCost, fCost;
     public Cell pastCell;
+    public GameObject myPrefab;
 
     public void Init(Grid grid, int x, int y, bool isWalkable)
     {
@@ -53,6 +54,7 @@ public class Cell : MonoBehaviour
     {
         isWalkable = v;
         SetColor(Color.black);
+        Instantiate(myPrefab, new Vector3(x, y, 0), Quaternion.identity);
     }
 
     public override string ToString()

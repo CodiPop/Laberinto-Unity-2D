@@ -37,7 +37,7 @@ public class PathManager : MonoBehaviour
                
                 Cell pathNode = grid.GetGridObject(x, y);
                 if (pathNode.isWalkable)
-                    pathNode.SetColor(Color.blue);
+                    //pathNode.SetColor(Color.white);
                 pathNode.gCost = int.MaxValue;
                 pathNode.CalculateFCost();
                 pathNode.pastCell = null;
