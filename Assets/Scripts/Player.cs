@@ -11,12 +11,18 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 2f;
     public Vector2 GetPosition => transform.position;
+    
 
     // Index of current waypoint from which Enemy walks
     // to the next one
     private int waypointIndex = 0;
 
     // Update is called once per frame
+    void start()
+    {
+
+    }
+
     void Update()
     {
         Move();
@@ -24,11 +30,19 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        
         if (col.gameObject.tag.Equals("Enemy"))
         {
             Destroy(this.gameObject);
             BoardManager.Instance.other.StartCoroutine("StopWatchStop");
-            ;
+            BoardManager.Instance.gameOver();
+            
+            
+        }
+        if (col.gameObject.tag.Equals("Final"))
+        {
+            BoardManager.Instance.other.StartCoroutine("StopWatchStop");
+
         }
     }
     public void SetPath(List<Cell> path)

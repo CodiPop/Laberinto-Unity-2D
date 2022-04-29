@@ -21,7 +21,8 @@ public class BoardManager : MonoBehaviour
     public Timer other;
     public int integer_Value_we_Want;
     public float P = 25;
-   
+    public GameObject gameOverText, restartButton;
+
 
 
 
@@ -33,6 +34,8 @@ public class BoardManager : MonoBehaviour
 
     private void Start()
     {
+        gameOverText.SetActive(false);
+        restartButton.SetActive(false);
         button.onClick.AddListener(() =>
         {
             canvas.gameObject.SetActive(false);
@@ -66,5 +69,11 @@ public class BoardManager : MonoBehaviour
     public float GetP()
     {
         return P;
+    }
+
+    public void gameOver()
+    {
+        gameOverText.SetActive(true);
+        restartButton.SetActive(true);
     }
 }
