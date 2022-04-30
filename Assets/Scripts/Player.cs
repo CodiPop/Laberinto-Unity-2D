@@ -41,7 +41,11 @@ public class Player : MonoBehaviour
         }
         if (col.gameObject.tag.Equals("Final"))
         {
-            BoardManager.Instance.other.StartCoroutine("StopWatchStop");
+            Destroy(this.gameObject);
+            BoardManager.Instance.resetPos();
+            BoardManager.Instance.updateLvl();
+            
+
 
         }
     }

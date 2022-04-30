@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public Transform player;
     public float speed = 5f;
     public float lineOfSite;
+    public static Enemy Instance;
     //private Rigidbody2D rb;
     //private Vector2 movement;
 
@@ -18,7 +19,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -43,10 +44,15 @@ public class Enemy : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //moveCharacter(movement);
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     void moveCharacter(Vector2 direction)
     {
         //rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
+    }
+
+    void Awake()
+    {
+        
     }
 }
