@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   other: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 2.5
 --- !u!61 &3441420977215970285
 BoxCollider2D:
   m_ObjectHideFlags: 0

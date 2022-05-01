@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3718647343025395527, guid: 661fd36d9db37614abad9eac47632838, type: 3}
-  speed: 5
-  lineOfSite: 0
+  speed: 1
+  lineOfSite: 6.5
 --- !u!50 &7540383998174938976
 Rigidbody2D:
   serializedVersion: 4

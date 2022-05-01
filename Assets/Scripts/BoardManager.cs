@@ -81,7 +81,7 @@ public class BoardManager : MonoBehaviour
         else if (level == 3)
         {
             player = Instantiate(PlayerPrefab, new Vector2(0, 0), Quaternion.identity);
-            createEnemy(10, 2);
+            createEnemy(8, 2);
         }
         else if (level == 4)
         {

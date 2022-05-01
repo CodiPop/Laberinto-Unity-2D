@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public Transform player;
     public float speed = 5f;
-    public float lineOfSite;
+    public float lineOfSite = 6.5f;
     public static Enemy Instance;
     //private Rigidbody2D rb;
     //private Vector2 movement;
